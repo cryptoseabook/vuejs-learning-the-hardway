@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VueJS Tutorials</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="vue-app">
+      <h1>Data Binding</h1>
+      <a v-bind:href="website">KungfuSoftware</a>
+      <a :href="website">KungfuSoftware</a>
+      <h1>{{ greet("morning") }}</h1>
+      <p> {{ name }} </p>
+      <p> {{ job }} </p>
+      <input type="text" name="" v-bind:value="name">
+
+      <p v-html="websiteTag"></p>
+
+      <h1>Mouse Events</h1>
+
+      <h1>Events</h1>
+      <p>My age is {{age}}</p>
+      <button v-on:click.once="addAge(1)">Add</button>
+      <button @click="subtractAge(1)">Sub</button>
+      <button v-on:dblclick="addAge(10)">Add 10 years</button>
+      <button @dblclick="subtractAge(10)">Sub 10 years</button>
+
+      <br>
+      <br>
+      <a @click="click" href="https://vuejs.org/v2/guide/events.html#Event-Modifiers">Event Modifier</a>
+      <a @click.prevent="click" href="https://vuejs.org/v2/guide/events.html#Event-Modifiers">Click me nothing happened</a>
+      <br>
+
+      <h1>keyboardEvents</h1>
+      LogName: <input type="text" value="" @keyup="logName">
+      LogName with Enter:<input type="text" value="" @keyup.enter="logName">
+      LogAge with Alt and Enter<input type="text" value="" @keyup.alt.enter="logAge">
+
+      <div class="">
+        Two Way data binding<input type="text" v-model="newName">
+        {{newName}}
+      </div>
+      <br>
+
+      <h1>Computed Properties</h1>
+      <button @click="a++">Add to A</button>
+      <button @click="b++">Add to B</button>
+
+      <p>A - {{a}}</p>
+      <p>B - {{b}}</p>
+      <p>Age + A == {{addToA}}</p>
+      <p>Age + B == {{addToB}}</p>
+
+      <div class="canvas" v-on:mouseMove="updateXY">
+        {{x}}, {{y}}
+      </div>
+
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
