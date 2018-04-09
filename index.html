@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>VueJS Tutorials</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <script src="https://unpkg.com/vue"></script>
   </head>
   <body>
@@ -44,7 +44,7 @@
       </div>
       <br>
 
-      <h1>Computed Properties</h1>
+      <h1>Computed Properties seabook</h1>
       <button @click="a++">Add to A</button>
       <button @click="b++">Add to B</button>
 
@@ -53,12 +53,69 @@
       <p>Age + A == {{addToA}}</p>
       <p>Age + B == {{addToB}}</p>
 
+      <h1>Conditional</h1>
+
+      <button @click="error = !error">Toggle Error</button>
+      <button @click="success = !success">Toggle Success</button>
+
+      <p v-if="error"> show this error paragraph</p>
+      <p v-else-if="success"> show this success paragraph</p>
+
+      <p v-show="error">Show Error</p>
+      <p v-show="success">Show Success</p>
+
+      <h1>Dynamic Css</h1>
+      <button @click="available = !available">Toggle Available</button>
+      <button @click="nearby = !nearby">Toggle Nearby</button>
+      <div v-bind:class="compClasses">
+        <span class="helloworld">Hello World</span>
+      </div>
+
+      <br>
+      <br>
+
+      <h1>Loop a list of objects</h1>
+
+      <ul>
+        <li v-for="character in characters">{{ character }}</li>
+      </ul>
+
+      <ul>
+        <li v-for="(ninja, index) in ninjas">{{index}}.{{ ninja.name }} - {{ ninja.age }}</li>
+      </ul>
+
+      <template v-for="(ninja, index) in ninjas">
+        <h3>{{index}}.{{ ninja.name }} - {{ ninja.age }}</h3>
+      </template>
+
+      <template v-for="ninja in ninjas">
+        <div v-for="(val, key) in ninja">
+
+          <h3>{{key}}: {{val}}</h3>
+
+        </div>
+      </template>
+
+      <h1>Refs</h1>
+      <form>
+        Seabook <input type="text" ref="seabook" />
+        <button @click="readRefs">Submit</button>
+        <div>
+          <h3>{{refValue}}</h3>
+        </div>
+      </form>
+
+      <div ref="refDiv">
+        <h3>This is a refs div</h3>
+      </div>
+
+
       <div class="canvas" v-on:mouseMove="updateXY">
         {{x}}, {{y}}
       </div>
 
     </div>
 
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
